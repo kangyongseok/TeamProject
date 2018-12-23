@@ -32,6 +32,20 @@
 * [아이웨딩](https://www.ifamily.co.kr/iwedding) + [잡플래닛](https://www.jobplanet.co.kr/welcome/index) 밴치마킹
 
 
+# 두번째 회의 181223
+
+* 지난 회의에서 구체적인 사항들을 제대로 정하지 않아서 모든 작업이 진행이 되지 않았음
+
+* 디테일한 Work Flow 와 Site Map 을 잡아 가면서 어쨋든 시장에 내놓을 시현 보다는 하나의 팀 프로젝트의 완성을 목적으로 짧은 작업 기간을 가져갈거라 작업시간이 비교적 길게 나올 분량들은 추후 추가하는 사항으로 하고 기본적인 기능들 위주로 진행
+
+* 프론트는 react로 작업하고 Backend 쪽은 JAVA를 사용하기로 했는데 병합에 대한 해결점을 찾지못해 html, css, js 를 사용하기로함
+
+>## View Table
+![viewtable](./images/view_table.jpg)
+
+>## Work flow
+![work flow](./images/work_flow.jpg)
+
 
 
 
