@@ -41,10 +41,10 @@
 * 프론트는 react로 작업하고 Backend 쪽은 JAVA를 사용하기로 했는데 병합에 대한 해결점을 찾지못해 html, css, js 를 사용하기로함
 
 >## View Table
-![viewtable](./images/view_table.jpg)
+![viewtable](https://github.com/kangyongseok/TeamProject/blob/master/imgaes/view_table.jpg)
 
 >## Work flow
-![work flow](./images/work_flow.jpg)
+![work flow](https://github.com/kangyongseok/TeamProject/blob/master/imgaes/work_flow.jpg)
 
 
 
