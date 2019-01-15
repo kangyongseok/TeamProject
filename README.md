@@ -47,7 +47,11 @@
 ![work flow](https://github.com/kangyongseok/TeamProject/blob/master/imgaes/work_flow.jpg)
 
 
+# 화면 구성 1차
 
+![kakaotalk_20190114_231912849](https://user-images.githubusercontent.com/32993709/51156082-5eceaf80-18bd-11e9-89fc-dbe21d7865f6.jpg)
+![kakaotalk_20190111_233108325](https://user-images.githubusercontent.com/32993709/51156108-7148e900-18bd-11e9-850e-7bda7af0fcad.jpg)
+![kakaotalk_20190111_233108082](https://user-images.githubusercontent.com/32993709/51156109-7148e900-18bd-11e9-8603-3c19c4bffe73.jpg)
 
 
 
