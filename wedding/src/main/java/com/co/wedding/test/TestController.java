@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 /**
- * Å×½ºÆ® Controller
+ * TEST Controller
  *
  * @author  Chopin
  * @date    2018-12-29

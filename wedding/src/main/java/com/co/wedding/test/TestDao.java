@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
- * Å×½ºÆ® Dao
+ * TEST Dao
  *
  * @author  Chopin
  * @date    2018-12-29
@@ -20,7 +20,7 @@ public class TestDao {
 	SqlSession sqlSession;
 
 	public List<TestBean> list() {
-		System.out.println("¾Æ¾Æ¤¿¤¿¤¿¤¿¤¿¤¿");
+		System.out.println("ï¿½Æ¾Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		List<TestBean> dataList = sqlSession.selectList("test.test");
 		System.out.println(dataList);
 		return dataList;
