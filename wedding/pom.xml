@@ -108,6 +108,9 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		
+		<!-- lombok -->
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 	
 		<!-- Test -->
 		<dependency>
@@ -171,12 +174,21 @@
 			<artifactId>cglib</artifactId>
 			<version>2.2</version>
 		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.44</version>
+		</dependency> -->
+		
+		<!-- maria DB -->
+		<dependency>
+		    <groupId>org.mariadb.jdbc</groupId>
+		    <artifactId>mariadb-java-client</artifactId>
+		    <version>1.5.7</version>
 		</dependency>
+		
 	</dependencies>
     <build>
         <plugins>

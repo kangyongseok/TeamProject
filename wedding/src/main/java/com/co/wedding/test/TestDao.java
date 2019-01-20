@@ -20,7 +20,9 @@ public class TestDao {
 	SqlSession sqlSession;
 
 	public List<TestBean> list() {
+		System.out.println("焼焼たたたたたた");
 		List<TestBean> dataList = sqlSession.selectList("test.test");
+		System.out.println(dataList);
 		return dataList;
 	}
 	

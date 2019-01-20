@@ -6,10 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="test" resultType="testBean">
 		SELECT
-			USER_SEQ AS userSeq
-			, USER_ID AS userId
-			, USER_PWD AS userPwd
-		FROM CO_USER
+			A.USER_SEQ
+			, A.USER_ID
+			, A.USER_PWD
+			, A.USER_DIV
+		FROM CO_USER A
 	</select>
 
 
