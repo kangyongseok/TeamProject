@@ -108,9 +108,6 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
-		<!-- lombok -->
-		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 	
 		<!-- Test -->
 		<dependency>
@@ -189,6 +186,23 @@
 		    <version>1.5.7</version>
 		</dependency>
 		
+		<!-- json 파싱 라이브러리 -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/-->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		
+		<!-- lombok -->
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.4</version>
+		    <scope>provided</scope>
+		</dependency>
+
 	</dependencies>
     <build>
         <plugins>

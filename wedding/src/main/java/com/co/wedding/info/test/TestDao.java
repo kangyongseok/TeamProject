@@ -1,4 +1,4 @@
-package com.co.wedding.test;
+package com.co.wedding.info.test;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class TestDao {
 	SqlSession sqlSession;
 
 	public List<TestBean> list() {
-		System.out.println("�ƾƤ�����������");
+		System.out.println("다오다오다오다오");
 		List<TestBean> dataList = sqlSession.selectList("test.test");
 		System.out.println(dataList);
 		return dataList;

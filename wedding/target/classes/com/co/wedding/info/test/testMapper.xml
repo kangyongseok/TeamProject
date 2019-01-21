@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			A.USER_SEQ AS USER_SEQ
 			, A.USER_ID AS USER_ID
 			, A.USER_PWD AS USER_PWD
-			, A.USER_DIV AS USER_DIV1
+			, A.USER_DIV AS USER_DIV
 		FROM CO_USER A
 	</select>
 

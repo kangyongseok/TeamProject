@@ -1,4 +1,4 @@
-package com.co.wedding.test;
+package com.co.wedding.info.test;
 
 import java.sql.*;
 
@@ -12,11 +12,11 @@ public class Test {
 	static final String PASSWORD = "1q2w3e4r";
 
 	public static void main(String[] args) {
-		System.out.println("Çï·Î");
+		System.out.println("ï¿½ï¿½ï¿½");
 		Connection conn = null;
 		Statement stmt = null;
 		try{
-			System.out.println("Ãò¶óÀÌÃò¶óÀÌ");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL,USERNAME,PASSWORD);
 			System.out.println("\n- MySQL Connection : conn"+conn);
@@ -49,7 +49,7 @@ public class Test {
 			try{
 				System.out.println("finally try");
 				if(stmt!=null) {
-					System.out.println("finally nullÀÌ ¾Æ´Ï¸é");
+					System.out.println("finally nullï¿½ï¿½ ï¿½Æ´Ï¸ï¿½");
 					stmt.close();
 				}
 			}catch(SQLException se2){

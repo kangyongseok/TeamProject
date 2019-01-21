@@ -1,4 +1,4 @@
-package com.co.wedding.test;
+package com.co.wedding.info.test;
 
 import java.util.List;
 
