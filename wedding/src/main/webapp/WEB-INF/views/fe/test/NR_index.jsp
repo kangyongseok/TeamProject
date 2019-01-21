@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>Test 페이지</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> <!-- jquery -->
 </head>
 <body>
@@ -29,18 +29,18 @@
 	</table>
 	<br /><br /><br />
 	<button type="button" id="btn">json 타입 리스트 불러오기</button>
-	<div id="box"></div>
 <script>
 
 $(function(){
 	
 	$("#btn").click(function(){
 		$.ajax({
-	        url : "/test/JR_list.do",
+	        url : "/fe/test/JR_list.do",
 	        type: "get",
 	        data : {},
 	        dataType:"json",
 	        success : function(data){
+	        	// data console로 확인
 	        	console.log(data);
 	        },
 	        error : function(){

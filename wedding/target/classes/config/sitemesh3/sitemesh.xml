@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+<sitemesh xmlns="http://sitemesh.org/xml/config"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://sitemesh.org/xml/config http://sitemesh.org/xml/config"> -->
+    
+<sitemesh>
+    
+    <!-- FE DEFAULT -->
+    <mapping path="/fe/**/NR_*" 
+        decorator="/WEB-INF/views/common/decorator/feDefault.jsp"/>
+    
+    <!-- BO DEFAULT -->
+    <mapping path="/bo/**/NR_*" 
+        decorator="/WEB-INF/views/common/decorator/boDefault.jsp"/>
+        
+    <!-- exclued -->
+    <!-- <mapping path="/bo/base/login/NR_*.do" exclued="true" /> -->
+
+    <mime-type>text/html</mime-type> 
+  	
+</sitemesh>

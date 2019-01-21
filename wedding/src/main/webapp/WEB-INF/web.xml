@@ -32,4 +32,21 @@
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+    
+	<filter>
+	    <filter-name>sitemesh</filter-name>
+	    <filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
+	    <init-param>
+	        <param-name>configFile</param-name>
+	        <param-value>/WEB-INF/classes/config/sitemesh3/sitemesh.xml</param-value>
+	    </init-param>
+	</filter>
+	<filter-mapping>
+	    <filter-name>sitemesh</filter-name>
+     	<url-pattern>/*</url-pattern>
+	    <servlet-name>dispatcher</servlet-name>
+	    <dispatcher>REQUEST</dispatcher>
+	    <dispatcher>FORWARD</dispatcher>
+	    <dispatcher>ERROR</dispatcher>
+	</filter-mapping>
 </web-app>

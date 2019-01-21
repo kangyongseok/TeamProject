@@ -25,7 +25,7 @@ import com.co.wedding.info.test.TestService;
  * @since   1.0
  */
 @Controller
-@RequestMapping(value=FeConstant.FE_TEST)
+@RequestMapping(value=FeConstant.FE_TEST_URL)
 public class TestController {
 	
 	@Resource
@@ -50,6 +50,5 @@ public class TestController {
     	List<TestBean> dataList = service.list();
         return dataList;
     }
-	
 	
 }
