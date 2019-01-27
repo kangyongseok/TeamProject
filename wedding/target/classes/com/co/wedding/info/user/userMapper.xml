@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+
+	<!-- 동적쿼리 -->
+    <sql id="dynamicWhere">
+        <if test="@Ognl@isNotEmpty(name)">
+            AND NAME LIKE '%' || #{name} || '%'
+        </if>
+    </sql>
+
+	<!-- 유저목록 -->
+	<select id="list" resultType="userBean" parameterType="userBean">
+		SELECT
+			A.USER_ID AS USER_ID
+			, A.USER_PWD AS USER_PWD
+			, A.USER_DIV AS USER_DIV
+			, A.NAME AS NAME
+			, A.POST AS POST
+			, A.ADDR1 AS ADDR1
+			, A.ADDR2 AS ADDR2
+			, A.SNS_DIV AS SNS_DIV
+			, A.SNS_CD AS SNS_CD
+			, A.USE_YN AS USE_YN
+			, A.REG_DT AS REG_DT
+			, A.MODI_DT AS MODI_DT
+		FROM CO_USER A
+		WHERE 1=1
+        	<include refid="dynamicWhere" />
+	</select>
+	
+	<!-- 유저등록 -->
+	<insert id="insert" parameterType="userBean">
+		INSERT INTO CO_USER(
+			USER_ID
+			, USER_PWD
+			, NAME
+			, POST
+			, ADDR1
+			, ADDR2
+			, SNS_DIV
+			, SNS_CD
+		) VALUES (
+			#{userId}
+			, #{usePwd}
+			, #{name}
+			, #{post}
+			, #{addr1}
+			, #{addr2}
+			, #{snsDiv}
+			, #{snsCd}
+		)
+	</insert>
+
+	<!-- 유저수정 -->	
+	<update id="update" parameterType="userBean">
+		UPDATE CO_USER SET
+			MODI_DT = NOW()
+	        <if test="@Ognl@isNotEmpty(userPwd)">
+				, USER_PWD = #{userPwd}
+	         </if>
+	        <if test="@Ognl@isNotEmpty(name)">
+				, NAME = #{name}
+	         </if>
+	        <if test="@Ognl@isNotEmpty(post)">
+				, POST = #{post}
+	         </if>
+	        <if test="@Ognl@isNotEmpty(addr1)">
+				, ADDR1 = #{addr1}
+	         </if>
+	        <if test="@Ognl@isNotEmpty(addr2)">
+				, ADDR2 = #{addr2}
+	         </if>
+	        <if test="@Ognl@isNotEmpty(useYn)">
+				, USE_YN = #{useYn}
+	         </if>
+		WHERE USER_ID = #{userId}
+	</update>
+	
+	<!-- 유저삭제 -->
+	<delete id="delete" parameterType="userBean">
+		DELETE FROM CO_USER
+		WHERE USER_ID = #{userId}
+	</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

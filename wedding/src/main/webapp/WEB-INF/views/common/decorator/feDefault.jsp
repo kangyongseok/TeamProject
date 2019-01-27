@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title><sitemesh:write property="title"/></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
     <sitemesh:write property="head"/>
 </head>
 <body>

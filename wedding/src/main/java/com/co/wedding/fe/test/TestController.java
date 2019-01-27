@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.co.wedding.fe.FeConstant;
 import com.co.wedding.info.test.TestBean;
 import com.co.wedding.info.test.TestService;
+import com.co.wedding.info.user.UserBean;
+import com.co.wedding.info.user.UserService;
 
 
 /**
@@ -45,7 +47,7 @@ public class TestController {
      * 테스트 목록 (json 타입)
      */
 	@ResponseBody
-    @RequestMapping(value="/JR_list.do", produces="application/json;charset=UTF-8", method=RequestMethod.GET)
+    @RequestMapping(value="/JR_list.do", method=RequestMethod.GET)
     public List<TestBean> list(ModelMap model) {
     	List<TestBean> dataList = service.list();
         return dataList;

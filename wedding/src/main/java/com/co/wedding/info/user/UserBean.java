@@ -1,4 +1,4 @@
-package com.co.wedding.info.test;
+package com.co.wedding.info.user;
 
 import org.apache.ibatis.type.Alias;
 
@@ -6,15 +6,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * TEST Bean
+ * USER Bean
  *
  * @author  Chopin
- * @date    2018-12-29
+ * @date    2019-01-27
  * @since   1.0
  */
-@Alias("testBean")
+@Alias("userBean")
 @Getter @Setter
-public class TestBean  {
+public class UserBean  {
 
     /* 유저_아이디 */
 	private String userId;
