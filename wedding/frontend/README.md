@@ -1,6 +1,6 @@
-# frontend
+# wedding
 
-> Wedding Team Project
+> team project
 
 ## Build Setup
 

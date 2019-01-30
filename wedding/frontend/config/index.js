@@ -44,12 +44,11 @@ module.exports = {
   },
 
   build: {
-    // Template for index.html 
-    // D:\Github\TeamProject\TeamProject\wedding\src\main\webapp\WEB-INF\views\home.jsp
-    index: path.resolve(__dirname, '../../src/main/webapp/WEB-INF/views/index.jsp'),
+    // Template for index.html
+    index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../../src/main/webapp/WEB-INF/views'),
+    assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 
