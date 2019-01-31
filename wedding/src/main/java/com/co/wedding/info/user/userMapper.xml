@@ -9,10 +9,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="@Ognl@isNotEmpty(name)">
             AND NAME LIKE '%' || #{name} || '%'
         </if>
+        <if test="@Ognl@isNotEmpty(userId)">
+            AND USER_ID = #{userId}
+        </if>
     </sql>
 
 	<!-- 유저목록 -->
 	<select id="list" resultType="userBean" parameterType="userBean">
+		SELECT
+			A.USER_ID AS USER_ID
+			, A.USER_PWD AS USER_PWD
+			, A.USER_DIV AS USER_DIV
+			, A.NAME AS NAME
+			, A.POST AS POST
+			, A.ADDR1 AS ADDR1
+			, A.ADDR2 AS ADDR2
+			, A.SNS_DIV AS SNS_DIV
+			, A.SNS_CD AS SNS_CD
+			, A.USE_YN AS USE_YN
+		FROM CO_USER A
+		WHERE 1=1
+        	<include refid="dynamicWhere" />
+	</select>
+	
+	<!-- 유저상세 -->
+	<select id="view" resultType="userBean" parameterType="userBean">
 		SELECT
 			A.USER_ID AS USER_ID
 			, A.USER_PWD AS USER_PWD
@@ -86,15 +107,3 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
