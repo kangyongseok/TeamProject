@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="_hall">
+
+	<!-- 동적쿼리 -->
+    <sql id="dynamicWhere">
+        <if test="@Ognl@isNotEmpty(hallSeq)">
+            AND A.HALL_SEQ = #{hallSeq}
+        </if>
+        <if test="@Ognl@isNotEmpty(hallNm)">
+            AND A.HALL_NM LIKE '%' || #{hallNm} || '%'
+        </if>
+        <if test="@Ognl@isNotEmpty(searchParam)">
+            AND (
+            	A.HALL_NM LIKE '%' || #{hallNm} || '%'
+            	OR A.ADDR1 LIKE '%' || #{addr1} || '%'
+            	OR A.ADDR2 LIKE '%' || #{addr2} || '%'
+            	OR A.HALL_CONTENTS LIKE '%' || #{addr2} || '%'
+            	)
+        </if>
+    </sql>
+
+	<!-- 웨딩홀목록 -->
+	<select id="list" resultType="hallBean" parameterType="hallBean">
+		SELECT
+			A.HALL_SEQ AS HALL_SEQ
+			, A.USER_ID AS USER_ID
+			, A.HALL_NM AS HALL_NM
+			, A.HALL_CONTENTS AS HALL_CONTENTS
+			, A.POST AS POST
+			, A.ADDR1 AS ADDR1
+			, A.ADDR2 AS ADDR2
+		FROM HALL A
+		WHERE 1=1
+        	<include refid="dynamicWhere" />
+	</select>
+
+	<!-- 웨딩홀상세 -->
+	<select id="view" resultType="hallBean" parameterType="hallBean">
+		SELECT
+			A.HALL_SEQ AS HALL_SEQ
+			, A.USER_ID AS USER_ID
+			, A.HALL_NM AS HALL_NM
+			, A.HALL_CONTENTS AS HALL_CONTENTS
+			, A.POST AS POST
+			, A.ADDR1 AS ADDR1
+			, A.ADDR2 AS ADDR2
+			, A.FILE_NO AS FILE_NO
+			, A.REG_DT AS REG_DT
+			, A.REG_ID AS REG_ID
+			, A.MODI_DT AS MODI_DT
+			, A.MODI_ID AS MODI_ID
+		FROM HALL A
+		WHERE 1=1
+        	<include refid="dynamicWhere" />
+	</select>
+	
+	<!-- 웨딩홀등록 -->
+	<insert id="insert" parameterType="hallBean">
+		INSERT INTO HALL(
+			USER_ID
+			, HALL_NM
+			, HALL_CONTENTS
+			, POST
+			, ADDR1
+			, ADDR2
+			, FILE_NO
+			, REG_ID
+		) VALUES (
+			#{userId}
+			, #{hallNm}
+			, #{hallContents}
+			, #{post}
+			, #{addr1}
+			, #{addr2}
+			, #{fileNo}
+			, #{regId}
+		)
+	</insert>
+
+	<!-- 웨딩홀수정 -->	
+	<update id="update" parameterType="hallBean">
+		UPDATE HALL SET
+			MODI_DT = NOW()
+			, MODI_ID = #{modiId}
+	        <if test="@Ognl@isNotEmpty(hallNm)">
+				, HALL_NM = #{hallNm}
+	         </if>
+	        <if test="@Ognl@isNotEmpty(hallContents)">
+				, HALL_CONTENTS = #{hallContents}
+	         </if>
+	        <if test="@Ognl@isNotEmpty(post)">
+				, POST = #{post}
+	         </if>
+	        <if test="@Ognl@isNotEmpty(addr1)">
+				, ADDR1 = #{addr1}
+	         </if>
+	        <if test="@Ognl@isNotEmpty(addr2)">
+				, ADDR2 = #{addr2}
+	         </if>
+	        <if test="@Ognl@isNotEmpty(useYn)">
+				, USE_YN = #{useYn}
+	         </if>
+		WHERE HALL_SEQ = #{hallSeq}
+	</update>
+	
+	<!-- 웨딩홀삭제 -->
+	<delete id="delete" parameterType="hallBean">
+		DELETE FROM HALL
+		WHERE HALL_SEQ = #{hallSeq}
+	</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
