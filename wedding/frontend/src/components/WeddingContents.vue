@@ -4,12 +4,12 @@
         <div class="contents-top">
             <h3><b>서초구</b> 총 <span>29</span>건 결과입니다.</h3>
             <div class="align">
-                <button type="button">별점순으로 보기</button>
-                <button type="button">리뷰순으로 보기</button>
+                <button type="button" v-on:click="setActive('star')" :class="{active:isActive('star')}">별점순으로 보기</button>
+                <button type="button" v-on:click="setActive('review')" :class="{active:isActive('review')}">리뷰순으로 보기</button>
             </div>
         </div>
         <div class="card-area">
-            <WeddingCard v-for="(card, key, index) in 6" />
+            <WeddingCard v-for="(card, key, index) in hallInfo" />
         </div>
     </div>
 </template>
@@ -17,12 +17,34 @@
 <script>
 import WeddingCard from './WeddingCard.vue'
 export default {
-    components: {WeddingCard}
+    components: {WeddingCard},
+    data() {
+        return {
+            activeItem: 'star',
+            hallInfo: [
+                { name:"케이터틀", addr:"서울 영등포구", star:5, img:"../assets/c1.jpg", like:false },
+                { name:"제이오스티엘", addr:"인천 남구", star:3, img:"../assets/c1.jpg", like:false },
+                { name:"켄싱턴호텔 여의도", addr:"서울 구로구", star:2, img:"../assets/c1.jpg", like:false },
+                { name:"그랜드오스티엄", addr:"서울 중구", star:0, img:"../assets/c1.jpg", like:false },
+                { name:"루이비스 웨딩홀", addr:"서울 동작구", star:1, img:"../assets/c1.jpg", like:false },
+                { name:"루이비스컨벤션 송파점", addr:"경기 수원시", star:4, img:"../assets/c1.jpg", like:false },
+            ]
+        }
+    },
+    methods: {
+        isActive : function(menuItem)  {
+            return this.activeItem === menuItem
+        },
+        setActive : function(menuItem) {
+            this.activeItem = menuItem
+        }
+    }
 }
 </script>
 
 <style lang="scss" scope>
     $mainColor: #00A591;
+    
     .contents {
         width:60%;
         margin:3rem auto;
@@ -45,9 +67,17 @@ export default {
             background: none;
             cursor: pointer;
             font-size:1rem;
+            outline: none;
         }
         span {
             color:$mainColor;
+        }
+        .active {
+            color:$mainColor;
+            font-weight:600;
+            border-bottom:2px solid $mainColor;
+            padding-bottom:0.5rem;
+            
         }
     }
     .card-area {

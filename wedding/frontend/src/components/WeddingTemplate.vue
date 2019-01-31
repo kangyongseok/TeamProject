@@ -19,12 +19,7 @@ import WeddingContents from './WeddingContents.vue'
 
 export default {
   name: 'WeddingTemplate',
-  components: {WeddingHaeder, WeddingBanner, WeddingContents},
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  components: {WeddingHaeder, WeddingBanner, WeddingContents}
 }
 </script>
 

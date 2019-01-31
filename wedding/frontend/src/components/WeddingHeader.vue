@@ -27,11 +27,11 @@
 
 <script>
 export default {
-    data() {
-        return {
-            isMessage: true,
-        }
+  data () {
+    return {
+      isMessage: true
     }
+  }
 }
 </script>
 

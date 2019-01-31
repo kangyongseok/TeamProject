@@ -1,5 +1,6 @@
 <template>
     <div class="hall-card" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="card-img">
             <img src="../assets/c1.jpg" alt="">
         </div>
@@ -10,21 +11,35 @@
             </p>
         </div>
         <div class="card-icon-info">
-            1
+            <div><font-awesome-icon icon="star" /></div>
+            
         </div>
+
     </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            
+        }
+    },
+    created() {
+        
+    },
+    methods: {
+        
+    },
+    props:[
+        
+    ]
 }
 </script>
 
 <style lang="scss" scope>
     .hall-card {
         width:30%;
-        height:400px;
         margin:auto;
         margin-bottom:2rem;
         box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.3);
