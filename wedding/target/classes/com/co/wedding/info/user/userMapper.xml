@@ -6,11 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 동적쿼리 -->
     <sql id="dynamicWhere">
-        <if test="@Ognl@isNotEmpty(name)">
-            AND NAME LIKE '%' || #{name} || '%'
-        </if>
         <if test="@Ognl@isNotEmpty(userId)">
-            AND USER_ID = #{userId}
+            AND A.USER_ID = #{userId}
+        </if>
+        <if test="@Ognl@isNotEmpty(name)">
+            AND A.NAME LIKE '%' || #{name} || '%'
         </if>
     </sql>
 
