@@ -24,8 +24,8 @@ public class UserDao {
 	 * @param userBean
 	 * @return
 	 */
-	public List<UserBean> list(UserBean userBean) {
-		return sqlSession.selectList("user.list", userBean);
+	public List<UserBean> list(UserBean bean) {
+		return sqlSession.selectList("_user.list", bean);
 	}
 
 	/**
@@ -33,8 +33,8 @@ public class UserDao {
 	 * @param userBean
 	 * @return
 	 */
-	public UserBean view(UserBean userBean) {
-		return sqlSession.selectOne("user.view", userBean);
+	public UserBean view(UserBean bean) {
+		return sqlSession.selectOne("_user.view", bean);
 	}
 
 	/**
@@ -42,8 +42,8 @@ public class UserDao {
 	 * @param userBean
 	 * @return
 	 */
-	public int insertAction(UserBean userBean) {
-		return sqlSession.insert("user.insert", userBean);
+	public int insertAction(UserBean bean) {
+		return sqlSession.insert("_user.insert", bean);
 	}
 
 	/**
@@ -51,8 +51,8 @@ public class UserDao {
 	 * @param userBean
 	 * @return
 	 */
-	public int updateAction(UserBean userBean) {
-		return sqlSession.update("user.update", userBean);
+	public int updateAction(UserBean bean) {
+		return sqlSession.update("_user.update", bean);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class UserDao {
 	 * @param userBean
 	 * @return
 	 */
-	public int deleteAction(UserBean userBean) {
-		return sqlSession.delete("user.delete", userBean);
+	public int deleteAction(UserBean bean) {
+		return sqlSession.delete("_user.delete", bean);
 	}
 }

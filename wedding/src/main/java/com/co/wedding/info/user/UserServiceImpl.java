@@ -23,39 +23,39 @@ public class UserServiceImpl implements UserService {
 	 * 유저목록
 	 */
 	@Override
-	public List<UserBean> list(UserBean userBean) {
-		return dao.list(userBean);
+	public List<UserBean> list(UserBean bean) {
+		return dao.list(bean);
 	}
 
 	/**
 	 * 유저상세
 	 */
 	@Override
-	public UserBean view(UserBean userBean) {
-		return dao.view(userBean);
+	public UserBean view(UserBean bean) {
+		return dao.view(bean);
 	}
 
 	/**
 	 * 유저등록
 	 */
 	@Override
-	public int insertAction(UserBean userBean) {
-		return dao.insertAction(userBean);
+	public int insertAction(UserBean bean) {
+		return dao.insertAction(bean);
 	}
 
 	/**
 	 * 유저수정
 	 */
 	@Override
-	public int updateAction(UserBean userBean) {
-		return dao.updateAction(userBean);
+	public int updateAction(UserBean bean) {
+		return dao.updateAction(bean);
 	}
 
 	/**
 	 * 유저삭제
 	 */
 	@Override
-	public int deleteAction(UserBean userBean) {
-		return dao.deleteAction(userBean);
+	public int deleteAction(UserBean bean) {
+		return dao.deleteAction(bean);
 	}
 }

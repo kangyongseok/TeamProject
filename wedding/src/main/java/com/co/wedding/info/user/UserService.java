@@ -12,14 +12,14 @@ import java.util.List;
 public interface UserService {
 
 	// 유저목록
-	List<UserBean> list(UserBean userBean);
+	List<UserBean> list(UserBean bean);
 	// 유저상세
-	UserBean view(UserBean userBean);
+	UserBean view(UserBean bean);
 	// 유저등록
-	int insertAction(UserBean userBean);
+	int insertAction(UserBean bean);
 	// 유저수정
-	int updateAction(UserBean userBean);
+	int updateAction(UserBean bean);
 	// 유저삭제
-	int deleteAction(UserBean userBean);
+	int deleteAction(UserBean bean);
 	
 }
