@@ -1,11 +1,13 @@
 <template>
-    <div >
+    <div @click="testClick($event)">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="card-img">
             <img :src="this.img" alt="">
         </div>
         <div class="card-info">
-            <h4 class="card-title">{{this.title}}</h4>
+            <h4 class="card-title">
+                <router-link to="/review">{{this.title}}</router-link>
+            </h4>
             <p>
                 {{this.addr}}
             </p>
@@ -41,6 +43,9 @@ export default {
             }else {
                 this.hallLike = true
             }
+        },
+        testClick:function(e) {
+            console.dir(e.currentTarget)
         }
     },
     props:[
