@@ -9,7 +9,15 @@
             </div>
         </div>
         <div class="card-area">
-            <WeddingCard v-for="(card, key, index) in hallInfo" />
+            <div class="hall-card" v-for="(card, index) in hallInfo">
+                <WeddingCard 
+                    :title="hallInfo[index].name"
+                    :addr="hallInfo[index].addr"
+                    :star="hallInfo[index].star"
+                    :img="hallInfo[index].img"
+                    :like="hallInfo[index].like"
+                /> 
+            </div>
         </div>
     </div>
 </template>
@@ -22,14 +30,17 @@ export default {
         return {
             activeItem: 'star',
             hallInfo: [
-                { name:"케이터틀", addr:"서울 영등포구", star:5, img:"../assets/c1.jpg", like:false },
-                { name:"제이오스티엘", addr:"인천 남구", star:3, img:"../assets/c1.jpg", like:false },
-                { name:"켄싱턴호텔 여의도", addr:"서울 구로구", star:2, img:"../assets/c1.jpg", like:false },
-                { name:"그랜드오스티엄", addr:"서울 중구", star:0, img:"../assets/c1.jpg", like:false },
-                { name:"루이비스 웨딩홀", addr:"서울 동작구", star:1, img:"../assets/c1.jpg", like:false },
-                { name:"루이비스컨벤션 송파점", addr:"경기 수원시", star:4, img:"../assets/c1.jpg", like:false },
+                { name:"케이터틀", addr:"서울 영등포구", star:5, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false },
+                { name:"제이오스티엘", addr:"인천 남구", star:3, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false },
+                { name:"켄싱턴호텔 여의도", addr:"서울 구로구", star:2, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:true },
+                { name:"그랜드오스티엄", addr:"서울 중구", star:0, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false },
+                { name:"루이비스 웨딩홀", addr:"서울 동작구", star:1, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false },
+                { name:"루이비스컨벤션 송파점", addr:"경기 수원시", star:4, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false },
             ]
         }
+    },
+    created() {
+        
     },
     methods: {
         isActive : function(menuItem)  {
@@ -85,5 +96,12 @@ export default {
         margin-top:2rem;
         display: flex;
         flex-wrap: wrap;
+        .hall-card {
+        width:30%;
+        margin:auto;
+        margin-bottom:2rem;
+        box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        }
     }
 </style>
