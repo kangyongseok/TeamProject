@@ -39,16 +39,27 @@ export default {
             ]
         }
     },
-    created() {
-        
-    },
     methods: {
         isActive : function(menuItem)  {
             return this.activeItem === menuItem
         },
         setActive : function(menuItem) {
             this.activeItem = menuItem
+        },
+        infinit() {
+            let that = this
+            let pushInfo = { name:"케이터틀", addr:"서울 영등포구", star:5, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false }
+            window.onscroll = function(ev) {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    setTimeout(() => {
+                        that.hallInfo.push(pushInfo)
+                    },2000)
+                }
+            };
         }
+    },
+    created() {
+        this.infinit()
     }
 }
 </script>
@@ -102,6 +113,7 @@ export default {
         margin-bottom:2rem;
         box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.3);
         border-radius: 5px;
+        background: white;
         }
     }
 </style>

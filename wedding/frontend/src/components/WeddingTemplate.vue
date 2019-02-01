@@ -29,6 +29,7 @@ export default {
     display:flex;
     height:80px;
     justify-content: center;
+    background: white;
   }
   .banner-area {
     width:100%;
