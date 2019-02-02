@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>회원목록</title>
+  <title>회원상세</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -30,10 +30,9 @@
   <div id="wrapper">
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <!--<script>
-            $('#accordionSidebar').load('left_nav.html');
-        </script> -->
         
+    
+
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -79,6 +78,8 @@
           </div>
         </div>
       </li>
+
+  
     </ul>
     <!-- End of Sidebar -->
     <!-- End of Sidebar -->
@@ -91,7 +92,7 @@
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" id="top_nav">
-            
+           
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
@@ -165,39 +166,81 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">회원목록</h1>
+          <h1 class="h3 mb-2 text-gray-800">회원상세</h1>
           
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">회원목록</h6>
+              <h6 class="m-0 font-weight-bold text-primary">회원상세</h6>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="tableData table table-striped table-bordered table-hover dataTable no-footer" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>id</th>
-                      <th>구분</th>
-                      <th>이름</th>
-                      <th>주소</th>
-                      <th>가입일자</th>
-                    </tr>
-                  </thead>                  
-                  <tbody>
-                    <tr>
-                      <td><a href="user_list.do?m_id=">kang1234</a></td>
-                      <td>회원</td>
-                      <td>강용석</td>
-                      <td>경기 가평군 가평읍 가랫골길 5 (이화리)</td>
-                      <td>2018-03-29 18:53:19.0</td>
-                    </tr>
-                    
-                    
-                  </tbody>
-                </table>
-              </div>
+              <!-- 회원상세 -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="member_insert.do" role="form" class="panel-body" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-lg-6">                                    
+                                    <div class="form-group">
+                                        <label for="">ID</label> 
+                                        <input type="text" name="user_id" id="user_id"class="form-control" placeholder="아이디" value="admin@toywedding.com"readonly />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">패스워드</label> 
+                                        <input type="password" name="user_pwd" id="user_pwd" class="form-control" placeholder="비밀번호"value="toywedding" /> 
+                                        <span class="mt5" id="user_pwd_msg"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" id="user_pwd2" class="form-control"placeholder="비밀번호 확인" value="" /> 
+                                        <span class="mt5" id="user_pwd_msg"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">회원구분</label> 
+                                        <input type="text" name="user_div" id="user_div" class="form-control" placeholder="U" value="user" /> 
+                                        <span class="mt5" id="user_div"></span>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="">이름</label> 
+                                        <input type="text" name="name"id="neme" class="form-control" placeholder="이름"value="admin" />
+                                    </div>              
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">가입일자</label> <input type="text" class="form-control"placeholder="YYYY-MM-DD" value="2018-03-19 13:02:27.0" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">주소</label>
+                                        <div class="row">
+                                            <div class="col-xs-8">
+                                                <input type="text" name="post" id="post"class="form-control" placeholder="우편번호"/>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <button type="button" class="btn btn-warning"onclick="findAddress()">주소찾기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="addr1" id="addr1" class="form-control"placeholder="지번주소" value="" />
+                                    </div>
+                                    <div class="form-group">            
+                                        <input type="text" name="addr2" id="addr2"class="form-control" placeholder="상세주소" value="" />
+                                    </div>
+                                    
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group text-right" float="rigth">
+                                            <button type="button" class="btn btn-primary" onclick="send_update(this.form); return false;">회원수정</button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- //회원상세 -->
+              
+              
+              
             </div>
           </div>
 
