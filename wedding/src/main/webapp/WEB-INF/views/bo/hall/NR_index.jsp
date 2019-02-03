@@ -27,7 +27,7 @@
         <tbody>
           <c:forEach var="item" items="${dataList}">
           <tr>
-            <td><a href="user_list.do?userId="><c:out value="${item.hallNm}"/></a></td>
+            <td><a href="NR_form.do?hallSeq=${item.hallSeq}"><c:out value="${item.hallNm}"/></a></td>
             <td><c:out value="${item.addr1}"/></td>
             <td><c:out value="${item.tel}"/></td>
             <td><c:out value="${item.regDd}"/></td>
