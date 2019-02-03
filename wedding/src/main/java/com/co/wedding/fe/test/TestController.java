@@ -53,4 +53,13 @@ public class TestController {
         return dataList;
     }
 	
+	/**
+	 * 샘플 페이지
+	 * @param model
+	 */
+	@RequestMapping(value="/NR_index2.do")
+    public void test2(Model model) {
+    	
+    }
+	
 }

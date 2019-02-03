@@ -6,10 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 동적쿼리 -->
     <sql id="dynamicWhere">
-        <if test="@Ognl@isNotEmpty(userId)">
+        <if test="!(userId == '' || userId == null)">
             AND A.USER_ID = #{userId}
         </if>
-        <if test="@Ognl@isNotEmpty(name)">
+        <if test="!(name == '' || name == null)">
             AND A.NAME LIKE '%' || #{name} || '%'
         </if>
     </sql>
@@ -26,10 +26,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, A.ADDR2 AS ADDR2
 			, A.SNS_DIV AS SNS_DIV
 			, A.SNS_CD AS SNS_CD
+			, A.TEL AS TEL
 			, A.USE_YN AS USE_YN
+			, A.REG_DT AS REG_DT
+			, DATE_FORMAT(A.REG_DT, '%Y-%m-%d') AS REG_DD
 		FROM CO_USER A
 		WHERE 1=1
         	<include refid="dynamicWhere" />
+        ORDER BY USER_ID ASC
 	</select>
 	
 	<!-- 유저상세 -->
@@ -44,6 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, A.ADDR2 AS ADDR2
 			, A.SNS_DIV AS SNS_DIV
 			, A.SNS_CD AS SNS_CD
+			, A.TEL AS TEL
 			, A.USE_YN AS USE_YN
 			, A.REG_DT AS REG_DT
 			, A.MODI_DT AS MODI_DT

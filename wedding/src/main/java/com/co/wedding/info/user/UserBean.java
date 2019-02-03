@@ -2,6 +2,8 @@ package com.co.wedding.info.user;
 
 import org.apache.ibatis.type.Alias;
 
+import com.co.wedding.info.common.BaseBean;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +16,7 @@ import lombok.Setter;
  */
 @Alias("userBean")
 @Getter @Setter
-public class UserBean  {
+public class UserBean extends BaseBean  {
 
     /* 유저_아이디 */
 	private String userId;
@@ -34,10 +36,14 @@ public class UserBean  {
 	private String snsDiv;
 	/* 소셜_코드 */
 	private String snsCd;
+	/* 연락처 */
+	private String tel;
 	/* 사용_여부 */
 	private String useYn;
 	/* 등록_일시 */
 	private String regDt;
+	/* 등록_일자 */
+	private String regDd;
 	/* 수정_일시 */
 	private String modiDt;
 }

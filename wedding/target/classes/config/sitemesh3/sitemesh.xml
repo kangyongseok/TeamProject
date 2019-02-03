@@ -7,10 +7,18 @@
 <sitemesh>
     
     <!-- FE DEFAULT -->
+    <mapping path="/fe/" 
+        decorator="/WEB-INF/views/common/decorator/feDefault.jsp"/>
+    <mapping path="/fe/NR_*" 
+        decorator="/WEB-INF/views/common/decorator/feDefault.jsp"/>
     <mapping path="/fe/**/NR_*" 
         decorator="/WEB-INF/views/common/decorator/feDefault.jsp"/>
     
     <!-- BO DEFAULT -->
+    <mapping path="/bo/" 
+        decorator="/WEB-INF/views/common/decorator/boDefault.jsp"/>
+    <mapping path="/bo/NR_*" 
+        decorator="/WEB-INF/views/common/decorator/boDefault.jsp"/>
     <mapping path="/bo/**/NR_*" 
         decorator="/WEB-INF/views/common/decorator/boDefault.jsp"/>
         

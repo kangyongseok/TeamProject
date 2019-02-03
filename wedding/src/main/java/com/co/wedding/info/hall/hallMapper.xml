@@ -6,13 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 동적쿼리 -->
     <sql id="dynamicWhere">
-        <if test="@Ognl@isNotEmpty(hallSeq)">
+        <if test="!(hallSeq == '' || hallSeq == null)">
             AND A.HALL_SEQ = #{hallSeq}
         </if>
-        <if test="@Ognl@isNotEmpty(hallNm)">
+        <if test="!(hallNm == '' || hallNm == null)">
             AND A.HALL_NM LIKE '%' || #{hallNm} || '%'
         </if>
-        <if test="@Ognl@isNotEmpty(searchParam)">
+        <if test="!(searchParam == '' || searchParam == null)">
             AND (
             	A.HALL_NM LIKE '%' || #{hallNm} || '%'
             	OR A.ADDR1 LIKE '%' || #{addr1} || '%'
@@ -32,6 +32,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, A.POST AS POST
 			, A.ADDR1 AS ADDR1
 			, A.ADDR2 AS ADDR2
+			, A.TEL AS TEL
+			, A.REG_DT AS REG_DT
+			, DATE_FORMAT(A.REG_DT, '%Y-%m-%d') AS REG_DD
 		FROM HALL A
 		WHERE 1=1
         	<include refid="dynamicWhere" />
@@ -47,6 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, A.POST AS POST
 			, A.ADDR1 AS ADDR1
 			, A.ADDR2 AS ADDR2
+			, A.TEL AS TEL
 			, A.FILE_NO AS FILE_NO
 			, A.REG_DT AS REG_DT
 			, A.REG_ID AS REG_ID
