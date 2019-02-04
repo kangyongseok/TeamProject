@@ -7,6 +7,7 @@ import WeddingReviewWrite from '@/components/WeddingReviewWrite'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -14,7 +15,7 @@ export default new Router({
       component: WeddingTemplate
     },
     {
-      path: '/review',
+      path: '/review/:id',
       name: 'WeddingReview',
       component: WeddingReview
     },

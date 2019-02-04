@@ -5,7 +5,7 @@
         </div>
         <div class="review-list-page hall-info">
             <div class="info-txt">
-                <h4>케이터틀</h4>
+                <h4>케이터틀{{$route.params.id}}</h4>
                 <div class="addr">서울시 마포구</div>
                 <div class="total-num"></div>
                 <div class="tag"></div>

@@ -14,7 +14,7 @@
                 </select>
 
                 <p class="form-title">평점을 매겨주세요</p>
-                맛 ★★★★★<br/>
+                맛 <rate :length="5" v-model="myRate" />{{myRate}}<br/>
                 교통 ★★★★★<br/>
                 서비스 ★★★★★<br/>
                 웨딩홀 ★★★★★<br/>
@@ -51,7 +51,8 @@ export default {
         return {
             isSubmitted: false,
             title:'',
-            content: ''  
+            content: ''  ,
+            myRate: 0
         }
     },
     methods: {
