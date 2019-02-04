@@ -8,6 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStar, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+
 library.add(faStar, faHeart)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false

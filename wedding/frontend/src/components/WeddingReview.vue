@@ -43,7 +43,12 @@
             </div>
         </div>
         <div class="review-list-page detail-review">
-
+            <h4>"별로인줄알았는데 어른들은 만족!"</h4>
+            <span>총점 4</span>
+            <span>2019.01.23</span>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quibusdam soluta optio laudantium laboriosam ducimus animi provident repudiandae. Dignissimos voluptates hic totam nisi dolores itaque aliquid molestias voluptatibus sit illum.
+            </p>
         </div>
     </div>
 </template>
@@ -100,6 +105,18 @@ export default {
         .star-num {
             font-size:2rem;
             margin:1rem 0;
+        }
+    }
+    .detail-review {
+        padding:2rem;
+        span {
+            font-size:0.8rem;
+            color:#666666;
+        }
+        p {
+            border-top:1px solid #cccccc;
+            margin-top:1rem;
+            padding-top:1rem;
         }
     }
 </style>
