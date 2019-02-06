@@ -1,119 +1,150 @@
 <template>
-    <div class="contents">
-        <p class="resion">내가 설정한 지역</p>
-        <div class="contents-top">
-            <h3><b>서초구</b> 총 <span>29</span>건 결과입니다.</h3>
-            <div class="align">
-                <button type="button" v-on:click="setActive('star')" :class="{active:isActive('star')}">별점순으로 보기</button>
-                <button type="button" v-on:click="setActive('review')" :class="{active:isActive('review')}">리뷰순으로 보기</button>
-            </div>
-        </div>
-        <div class="card-area">
-            <div class="hall-card" v-for="(card, index) in hallInfo">
-                <WeddingCard 
-                    :title="hallInfo[index].name"
-                    :addr="hallInfo[index].addr"
-                    :star="hallInfo[index].star"
-                    :img="hallInfo[index].img"
-                    :like="hallInfo[index].like"
-                /> 
-            </div>
-        </div>
+  <div class="main-contents">
+    <div class="content-top">
+      <h1 class="contents-title">Wedding Hall List</h1>
+      <div class="order-btn">
+        <button class="btn">별점순으로 보기</button>
+        <button class="btn">리뷰순으로 보기</button>
+      </div>
     </div>
+    <div class="card-area">
+      <div class="card" v-for="(info, index) in getData" v-bind:key="index">
+      <div class="hall-img">
+        <img :src="info.img" alt="">
+      </div>
+      <div class="hall-text">
+        <h3><router-link :to="{path: '/review/' + info.id}">{{info.name}}</router-link></h3>
+        <p class="address">
+          {{info.address}}
+        </p>
+      </div>
+      <div class="icon-area">
+        <div class="stars">
+          <v-icon name="star" v-for="(star, index) in info.star" v-bind:key="index"/>
+        </div>
+        <div class="like">
+          <button class="btn">
+            <v-icon name="heart"/>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+    <div class="loding" v-if="loding">
+      <v-icon name="spinner" spin scale="2"/>
+    </div>
+  </div> 
 </template>
 
 <script>
-import WeddingCard from './WeddingCard.vue'
+// https://justineo.github.io/vue-awesome/demo/
+import { mapActions, mapGetters } from 'vuex'
 export default {
-    components: {WeddingCard},
-    data() {
-        return {
-            activeItem: 'star',
-            hallInfo: [
-                { name:"케이터틀", addr:"서울 영등포구", star:5, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false },
-                { name:"제이오스티엘", addr:"인천 남구", star:3, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false },
-                { name:"켄싱턴호텔 여의도", addr:"서울 구로구", star:2, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:true },
-                { name:"그랜드오스티엄", addr:"서울 중구", star:0, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false },
-                { name:"루이비스 웨딩홀", addr:"서울 동작구", star:1, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false },
-                { name:"루이비스컨벤션 송파점", addr:"경기 수원시", star:4, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false },
-            ]
-        }
-    },
-    methods: {
-        isActive : function(menuItem)  {
-            return this.activeItem === menuItem
-        },
-        setActive : function(menuItem) {
-            this.activeItem = menuItem
-        },
-        infinit() {
-            let that = this
-            let pushInfo = { name:"케이터틀", addr:"서울 영등포구", star:5, img:"https://user-images.githubusercontent.com/32993709/52098561-d6694200-2612-11e9-9a89-4f28f05d6aea.jpg", like:false }
-            window.onscroll = function(ev) {
-                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                    setTimeout(() => {
-                        that.hallInfo.push(pushInfo)
-                    },2000)
-                }
-            };
-        }
-    },
-    created() {
-        this.infinit()
+  data() {
+    return {
+      loding: false
     }
+  },
+  created() {
+    this.infinit()
+  },
+  methods: {
+    ...mapActions([
+      
+    ]),
+    infinit: function() {
+      window.onscroll = function(ev) {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+          console.log(1)
+        }
+      };
+    },
+  },
+  computed: {
+    ...mapGetters([
+      'getData'
+    ])
+  }
 }
 </script>
 
-<style lang="scss" scope>
-    $mainColor: #00A591;
-    
-    .contents {
-        width:60%;
-        margin:3rem auto;
-        .resion {
-            font-size:0.8rem;
-            font-weight:600;
-            color:$mainColor;
-            margin-bottom:0.5rem;
-        }
-    }
-    .contents-top {
-        display:flex;
-        h3 {
-            margin-right:auto;
-            font-weight: 500;
-            font-size:1.5rem;
-        }
-        button {
-            border:none;
-            background: none;
-            cursor: pointer;
-            font-size:1rem;
-            outline: none;
-        }
-        span {
-            color:$mainColor;
-        }
-        .active {
-            color:$mainColor;
-            font-weight:600;
-            border-bottom:2px solid $mainColor;
-            padding-bottom:0.5rem;
-            
-        }
-    }
-    .card-area {
-        width:100%;
-        margin-top:2rem;
-        display: flex;
-        flex-wrap: wrap;
-        .hall-card {
-        width:30%;
-        margin:auto;
-        margin-bottom:2rem;
-        box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.3);
-        border-radius: 5px;
-        background: white;
-        }
-    }
+<style>
+  .main-contents {
+    width:60%;
+    margin:2rem auto;
+  }
+  .main-contents .card {
+    margin-top:2rem;
+    background: white;
+    width:32%;
+  }
+  .main-contents .card img {
+    width:100%;
+  }
+  .hall-img {
+    height:200px;
+    overflow: hidden;
+    background: #333333;
+  }
+  .hall-text {
+    padding:1rem;
+  }
+  .hall-text .address {
+    margin:1rem 0; 
+  }
+
+  .card-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icon-area {
+    overflow: auto;
+    padding:1rem;
+    border-top:1px solid #cccccc;
+    margin-top:auto;
+  }
+  .icon-area .stars {
+    float:left;
+  }
+  .icon-area .like {
+    float:right;
+  }
+  .icon-area .like .btn {
+    color:#cccccc;
+  }
+
+  .content-top {
+    overflow: auto;
+    position: relative;
+  }
+  .contents-title {
+    float: left;
+  }
+  .order-btn {
+    float: right;
+    height:100%;
+    position: absolute;
+    right:0;
+    bottom:0;
+  }
+  .order-btn .btn {
+    font-size:1rem;
+    margin-left:1rem;
+    height:100%;
+  }
+
+  .loding {
+    clear: both;
+    text-align: center;
+    margin:2rem 0;
+    color:#cccccc;
+  }
 </style>

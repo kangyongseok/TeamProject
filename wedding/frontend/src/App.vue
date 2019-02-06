@@ -10,25 +10,25 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR|Roboto');
+#app {
+  font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+}
 * {
   margin:0;
   padding:0;
   box-sizing: border-box;
 }
-
-html,
-body {
-  width:100%;
-  font-size:100%;
-}
-
 body {
   height:100%;
-  background: #f1f1f1;
+  background: #f4f4f4;
 }
 
-ul {
-  list-style: none;
+.btn {
+  border:none;
+  background: none;
+  cursor: pointer;
+  outline: none;
 }
 </style>

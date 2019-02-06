@@ -3,22 +3,24 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store/store'
 import axios from 'axios'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faStar, faHeart } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import rate from 'vue-rate'
+import Icon from 'vue-awesome/components/Icon'
 
-library.add(faStar, faHeart)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+import 'vue-awesome/icons/star'
+import 'vue-awesome/icons/heart'
+import 'vue-awesome/icons/spinner'
+
+
+Vue.component('v-icon', Icon)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
-Vue.use(rate)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
