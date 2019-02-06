@@ -11,6 +11,13 @@
 	<!-- 페이지별 title -->
 	<title><sitemesh:write property="title"/></title>
 
+  <!-- Bootstrap core JavaScript-->
+  <script src="/resources/bo/vendor/jquery/jquery.min.js"></script>
+  <script src="/resources/bo/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+	<!-- bo 공통 -->
+  <script src="/resources/bo/js/boCommon.js"></script>
+
 	<!-- Custom fonts for this template-->
 	<link href="/resources/bo/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -36,7 +43,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/bo/">
           <i class="fas fa-cogs"></i>
           <span>대시보드</span></a>
       </li>
@@ -79,7 +86,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -88,7 +95,7 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -187,10 +194,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="/resources/bo/vendor/jquery/jquery.min.js"></script>
-  <script src="/resources/bo/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="/resources/bo/vendor/jquery-easing/jquery.easing.min.js"></script>

@@ -11,23 +11,23 @@
 흠
 <button type="button" id="btn">버튼</button>
 <%
-Connection conn = null;
-Statement stmt = null;
-ResultSet rs = null;
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
 try {
-Class.forName("com.mysql.jdbc.Driver");
-conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/chopine7", "chopine7", "q1w2e3r4");
-stmt = conn.createStatement(); 
-rs = stmt.executeQuery("select version()");
+	Class.forName("com.mysql.jdbc.Driver");
+	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/chopine7", "chopine7", "q1w2e3r4");
+	stmt = conn.createStatement(); 
+	rs = stmt.executeQuery("select version()");
 while(rs.next()) {
-out.println("mysql version ==>"+rs.getString("version()")); 
+	out.println("mysql version ==>"+rs.getString("version()")); 
 }
 } catch (Exception e) {
-e.printStackTrace();
+	e.printStackTrace();
 } finally {
-if( rs != null ) try { rs.close(); } catch(Exception ex) {}
-if( stmt != null ) try { stmt.close(); } catch(Exception ex) {}
-if( conn != null ) try{ conn.close(); } catch(Exception ex){}
+	if( rs != null ) try { rs.close(); } catch(Exception ex) {}
+	if( stmt != null ) try { stmt.close(); } catch(Exception ex) {}
+	if( conn != null ) try{ conn.close(); } catch(Exception ex){}
 }
 %>
 

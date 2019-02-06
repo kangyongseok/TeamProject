@@ -31,7 +31,7 @@ public class BoController {
 	
 	@RequestMapping(value="/")
     public String index2() {
-		return BoConstant.BO_MAIN+"/NR_index";
+		return "redirect:NR_index.do";
 	}
 	
 }

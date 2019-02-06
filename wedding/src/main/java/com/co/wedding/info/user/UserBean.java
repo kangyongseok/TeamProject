@@ -46,4 +46,6 @@ public class UserBean extends BaseBean  {
 	private String regDd;
 	/* 수정_일시 */
 	private String modiDt;
+	/* 수정_일자 */
+	private String modiDd;
 }
