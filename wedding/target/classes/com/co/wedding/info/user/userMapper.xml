@@ -6,10 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 동적쿼리 -->
     <sql id="dynamicWhere">
-        <if test="!(userId == '' || userId == null)">
+        <if test="!(userId == null || userId == '')">
             AND A.USER_ID = #{userId}
         </if>
-        <if test="!(name == '' || name == null)">
+        <if test="!(name == null || name == '')">
             AND A.NAME LIKE '%' || #{name} || '%'
         </if>
     </sql>
@@ -33,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM CO_USER A
 		WHERE 1=1
         	<include refid="dynamicWhere" />
-        ORDER BY USER_ID ASC
+        ORDER BY REG_DT DESC
 	</select>
 	
 	<!-- 유저상세 -->
@@ -51,7 +51,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, A.TEL AS TEL
 			, A.USE_YN AS USE_YN
 			, A.REG_DT AS REG_DT
+			, DATE_FORMAT(A.REG_DT, '%Y-%m-%d') AS REG_DD
 			, A.MODI_DT AS MODI_DT
+			, DATE_FORMAT(A.MODI_DT, '%Y-%m-%d') AS MODI_DD
 		FROM CO_USER A
 		WHERE 1=1
         	<include refid="dynamicWhere" />
@@ -70,7 +72,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, SNS_CD
 		) VALUES (
 			#{userId}
-			, #{usePwd}
+			, #{userPwd}
 			, #{name}
 			, #{post}
 			, #{addr1}
@@ -84,22 +86,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update" parameterType="userBean">
 		UPDATE CO_USER SET
 			MODI_DT = NOW()
-	        <if test="@Ognl@isNotEmpty(userPwd)">
+	        <if test="!(userPwd == null || userPwd == '')">
 				, USER_PWD = #{userPwd}
 	         </if>
-	        <if test="@Ognl@isNotEmpty(name)">
+	        <if test="!(name == null || name == '')">
 				, NAME = #{name}
 	         </if>
-	        <if test="@Ognl@isNotEmpty(post)">
+	        <if test="!(post == null || post == '')">
 				, POST = #{post}
 	         </if>
-	        <if test="@Ognl@isNotEmpty(addr1)">
+	        <if test="!(addr1 == null || addr1 == '')">
 				, ADDR1 = #{addr1}
 	         </if>
-	        <if test="@Ognl@isNotEmpty(addr2)">
+	        <if test="!(addr2 == null || addr2 == '')">
 				, ADDR2 = #{addr2}
 	         </if>
-	        <if test="@Ognl@isNotEmpty(useYn)">
+	        <if test="!(useYn == null || userYn == '')">
 				, USE_YN = #{useYn}
 	         </if>
 		WHERE USER_ID = #{userId}
