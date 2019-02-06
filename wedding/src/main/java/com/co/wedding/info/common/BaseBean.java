@@ -17,4 +17,6 @@ import lombok.Setter;
 public class BaseBean  {
 	/* 검색_파라미터 */
 	private String searchParam;
+	/* 액션구분 */
+	private String cmd;
 }
