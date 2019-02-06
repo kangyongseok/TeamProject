@@ -9,10 +9,16 @@
 	<context:property-placeholder location="classpath:config/mybatis/db.properties"/>
 
 	<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${driver}"/>
+	<!-- TODO cafe24 호스팅시 오류 발생하여 임시로 직접 기입 -->
+		<!-- <property name="driverClassName" value="${driver}"/>
 		<property name="url" value="${url}"/>
 		<property name="username" value="${user}"/>
-		<property name="password" value="${pwd}"/>
+		<property name="password" value="${pwd}"/> -->
+		
+		<property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://183.111.199.179:3306/chopine7"/>
+		<property name="username" value="chopine7"/>
+		<property name="password" value="q1w2e3r4"/>
 	</bean>
 	
 </beans>
