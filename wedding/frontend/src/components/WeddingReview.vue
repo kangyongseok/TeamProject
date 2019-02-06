@@ -10,7 +10,7 @@
           <span class="tag" v-for="(tag, index) in hallInfo.tag" v-bind:key="index">{{tag}}</span>
         </div>
         <div class="info-img">
-          <!-- <img :src="hallInfo.img" alt=""> -->
+          <img :src="hallInfo.img" alt="">
         </div>
       </div>
       <div class="box ratings">
@@ -50,7 +50,6 @@
         </p>
       </div>
     </div>
-    {{$route.params.id}}
   </div>
 </template>
 
@@ -100,6 +99,25 @@ export default {
     text-align: center;
     padding:2rem;
   }
+
+  .hall-info {
+    display: flex;
+  }
+
+  .info-txt {
+    padding:2rem;
+    flex: 1;
+  }
+
+  .info-img {
+    flex: 2;
+  }
+
+  .info-img img {
+    width:100%;
+    
+  }
+
   .reviews {
     padding:2rem;
   }
