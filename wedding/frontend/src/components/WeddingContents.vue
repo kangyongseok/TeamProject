@@ -23,13 +23,12 @@
           <v-icon name="star" v-for="(star, index) in info.star" v-bind:key="index"/>
         </div>
         <div class="like">
-          <button class="btn">
-            <v-icon name="heart"/>
+          <button class="btn" @click="hallLike(index)" :class="{ likeOn:info.like }"> 
+            <v-icon name="heart" />
           </button>
         </div>
       </div>
     </div>
-    
     </div>
     <div class="loding" v-if="loding">
       <v-icon name="spinner" spin scale="2"/>
@@ -39,7 +38,7 @@
 
 <script>
 // https://justineo.github.io/vue-awesome/demo/
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -53,13 +52,16 @@ export default {
     ...mapActions([
       
     ]),
+    hallLike(index) {
+      this.$store.commit('hallLike', index)
+    },
     infinit: function() {
       window.onscroll = function(ev) {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
           console.log(1)
         }
       };
-    },
+    }
   },
   computed: {
     ...mapGetters([
@@ -103,6 +105,7 @@ export default {
   .card {
     display: flex;
     flex-direction: column;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
   }
 
   .icon-area {
@@ -146,5 +149,9 @@ export default {
     text-align: center;
     margin:2rem 0;
     color:#cccccc;
+  }
+
+  .icon-area .like .likeOn {
+    color:lightpink;
   }
 </style>
