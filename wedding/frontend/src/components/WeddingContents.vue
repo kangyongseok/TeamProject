@@ -3,7 +3,7 @@
     <div class="content-top">
       <h1 class="contents-title">Wedding Hall List</h1>
       <div class="order-btn">
-        <button class="btn">별점순으로 보기</button>
+        <button class="btn" >별점순으로 보기</button>
         <button class="btn">리뷰순으로 보기</button>
       </div>
     </div>
@@ -60,7 +60,7 @@ export default {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
           console.log(1)
         }
-      };
+      }; 
     }
   },
   computed: {
@@ -152,6 +152,6 @@ export default {
   }
 
   .icon-area .like .likeOn {
-    color:lightpink;
+    color:red;
   }
 </style>
