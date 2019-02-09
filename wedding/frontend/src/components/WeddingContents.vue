@@ -3,8 +3,8 @@
     <div class="content-top">
       <h1 class="contents-title">Wedding Hall List</h1>
       <div class="order-btn">
-        <button class="btn" @click="" >별점순으로 보기</button>
-        <button class="btn">리뷰순으로 보기</button>
+        <button class="btn" @click="orderClick" name="star" :class="{ star: clickon}" >별점순으로 보기</button>
+        <button class="btn" @click="orderClick" name="review" :class="{ review: clickoff }">리뷰순으로 보기</button>
       </div>
     </div>
     <div class="card-area">
@@ -42,7 +42,10 @@ import { mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
   data() {
     return {
-      loding: false
+      loding: false,
+      clickon: true,
+      clickoff: false
+
     }
   },
   created() {
@@ -61,6 +64,15 @@ export default {
           console.log(1)
         }
       }; 
+    },
+    orderClick: function(e) {
+      if(e.target.name === "star") {
+        this.clickon = true
+        this.clickoff = false
+      } else {
+        this.clickon = false
+        this.clickoff = true
+      }
     }
   },
   computed: {
@@ -153,5 +165,15 @@ export default {
 
   .icon-area .like .likeOn {
     color:red;
+  }
+
+  .star {
+    color: #00A591;
+    font-weight:bold;
+  }
+
+    .review {
+    color: #00A591;
+    font-weight:bold;
   }
 </style>
