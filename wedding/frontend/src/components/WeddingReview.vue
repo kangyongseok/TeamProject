@@ -118,7 +118,8 @@ export default {
       this.hallInfo = this.getData[this.$route.params.id]
     },
     setRating: function(event, a){  
-      this.ratings.splice(a, 0, event)
+      // this.ratings.splice(a, 0, event)
+      this.ratings.splice(a, 1, event)
     }
   },
   computed: {
@@ -142,8 +143,14 @@ export default {
     display: flex;
   }
 
-    .ratings h3 {
+  .ratings h3 {
     font-size:0.8rem;
+  }
+
+  .ratings p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .ratings .rating {
     flex:1;
