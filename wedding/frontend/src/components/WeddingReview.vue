@@ -16,28 +16,68 @@
       <div class="box ratings">
         <div class="rating">
             <h3>맛</h3>
-            <p>4.0</p>
-            <p>★</p>
+            <p class="rating-num">{{ratings[0]}}</p>
+            <p>
+              <star-rating 
+                v-bind:star-size="15" 
+                v-bind:increment="0.5" 
+                v-bind:show-rating="false"
+                v-bind:fixed-points="0.0"
+                @rating-selected ="setRating($event, 0)"
+              />
+            </p>
           </div>
           <div class="rating">
             <h3>교통</h3>
-            <p>4.0</p>
-            <p>★</p>
-          </div>
+            <p class="rating-num">{{ratings[1]}}</p>
+            <p>
+              <star-rating 
+                v-bind:star-size="15" 
+                v-bind:increment="0.5" 
+                v-bind:show-rating="false"
+                v-bind:fixed-points="0.0"
+                @rating-selected ="setRating($event, 1)"
+                />
+            </p>
+          </div >
           <div class="rating">
             <h3>서비스</h3>
-            <p>4.0</p>
-            <p>★</p>
+            <p class="rating-num">{{ratings[2]}}</p>
+            <p>
+              <star-rating 
+                v-bind:star-size="15" 
+                v-bind:increment="0.5" 
+                v-bind:show-rating="false"
+                v-bind:fixed-points="0.0"
+                @rating-selected ="setRating($event, 2)"
+                />
+            </p>
           </div>
           <div class="rating">
             <h3>웨딩홀</h3>
-            <p>4.0</p>
-            <p>★</p>
+            <p class="rating-num">{{ratings[3]}}</p>
+            <p>
+              <star-rating 
+                v-bind:star-size="15" 
+                v-bind:increment="0.5" 
+                v-bind:show-rating="false"
+                v-bind:fixed-points="0.0"
+                @rating-selected ="setRating($event, 3)"
+                />
+            </p>
           </div>
           <div class="rating">
             <h3>주차</h3>
-            <p>4.0</p>
-            <p>★</p>
+            <p class="rating-num">{{ratings[4]}}</p>
+            <p>
+              <star-rating 
+                v-bind:star-size="15" 
+                v-bind:increment="0.5" 
+                v-bind:show-rating="false"
+                v-bind:fixed-points="0.0"
+                @rating-selected ="setRating($event, 4)"
+                />
+            </p>
           </div>
       </div>
       <div class="box reviews" v-for="(review, index) in hallInfo.reviews" v-bind:key="index">
@@ -56,15 +96,19 @@
 <script>
 import Header from '@/components/common/Header'
 import { mapGetters } from 'vuex'
+import StarRating from 'vue-star-rating'
+
 
 export default {
   data() {
     return {
-      hallInfo: ''
+      hallInfo: '',
+      ratings: [0, 0, 0, 0, 0]
     }
   },
   components: {
-    Header
+    Header,
+    StarRating
   },
   created() {
     this.getFilter()
@@ -72,6 +116,9 @@ export default {
   methods: {
     getFilter: function() {
       this.hallInfo = this.getData[this.$route.params.id]
+    },
+    setRating: function(event, a){  
+      this.ratings.splice(a, 0, event)
     }
   },
   computed: {
@@ -93,6 +140,10 @@ export default {
   }
   .ratings {
     display: flex;
+  }
+
+    .ratings h3 {
+    font-size:0.8rem;
   }
   .ratings .rating {
     flex:1;
@@ -125,5 +176,10 @@ export default {
     border-top:1px solid #cccccc;
     margin-top:1rem;
     padding-top:1rem;
+  }
+
+  .rating-num {
+    margin:0.8rem;
+    font-size:1.5rem;
   }
 </style>
