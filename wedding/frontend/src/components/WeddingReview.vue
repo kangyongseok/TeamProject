@@ -5,7 +5,7 @@
       <div class="box hall-info">
         <div class="info-txt">
           <h2>{{hallInfo.name}}</h2>
-          <p class="adr">{{hallInfo.address}} test</p>
+          <p class="adr">{{hallInfo.address}}</p>
           <p class="rating-total"></p>
           <span class="tag" v-for="(tag, index) in hallInfo.tag" v-bind:key="index">{{tag}}</span>
         </div>
@@ -16,79 +16,35 @@
       <div class="box ratings">
         <div class="rating">
             <h3>맛</h3>
-            <p class="rating-num">{{ratings[0]}}</p>
-            <p>
-              <star-rating 
-                v-bind:star-size="15" 
-                v-bind:increment="0.5" 
-                v-bind:show-rating="false"
-                v-bind:fixed-points="0.0"
-                @rating-selected ="setRating($event, 0)"
-              />
-            </p>
+            <p class="rating-num">0.0</p>
+            <p>★★★★★</p>
           </div>
           <div class="rating">
             <h3>교통</h3>
-            <p class="rating-num">{{ratings[1]}}</p>
-            <p>
-              <star-rating 
-                v-bind:star-size="15" 
-                v-bind:increment="0.5" 
-                v-bind:show-rating="false"
-                v-bind:fixed-points="0.0"
-                @rating-selected ="setRating($event, 1)"
-                />
-            </p>
+            <p class="rating-num">0.0</p>
+            <p>★★★★★</p>
           </div >
           <div class="rating">
             <h3>서비스</h3>
-            <p class="rating-num">{{ratings[2]}}</p>
-            <p>
-              <star-rating 
-                v-bind:star-size="15" 
-                v-bind:increment="0.5" 
-                v-bind:show-rating="false"
-                v-bind:fixed-points="0.0"
-                @rating-selected ="setRating($event, 2)"
-                />
-            </p>
+            <p class="rating-num">0.0</p>
+            <p>★★★★★</p>
           </div>
           <div class="rating">
             <h3>웨딩홀</h3>
-            <p class="rating-num">{{ratings[3]}}</p>
-            <p>
-              <star-rating 
-                v-bind:star-size="15" 
-                v-bind:increment="0.5" 
-                v-bind:show-rating="false"
-                v-bind:fixed-points="0.0"
-                @rating-selected ="setRating($event, 3)"
-                />
-            </p>
+            <p class="rating-num">0.0</p>
+            <p>★★★★★</p>
           </div>
           <div class="rating">
             <h3>주차</h3>
-            <p class="rating-num">{{ratings[4]}}</p>
-            <p>
-              <star-rating 
-                v-bind:star-size="15" 
-                v-bind:increment="0.5" 
-                v-bind:show-rating="false"
-                v-bind:fixed-points="0.0"
-                @rating-selected ="setRating($event, 4)"
-                />
-            </p>
+            <p class="rating-num">0.0</p>
+            <p>★★★★★</p>
           </div>
       </div>
       <div class="box reviews" v-for="(review, index) in hallInfo.reviews" v-bind:key="index">
         <h3 class="review-title">
           "{{review.title}}"
         </h3>
-<<<<<<< HEAD
         <p>총점<b>{{review.totalRating}}</b> {{review.date}}</p>
-=======
-        <p>총점 test <b>{{review.totalRating}}</b> {{review.date}}</p>
->>>>>>> release/release
         <p class="review-txt">
           {{review.txt}}
         </p>
@@ -100,19 +56,16 @@
 <script>
 import Header from '@/components/common/Header'
 import { mapGetters } from 'vuex'
-import StarRating from 'vue-star-rating'
 
 
 export default {
   data() {
     return {
       hallInfo: '',
-      ratings: [0, 0, 0, 0, 0]
     }
   },
   components: {
-    Header,
-    StarRating
+    Header
   },
   created() {
     this.getFilter()
@@ -121,10 +74,7 @@ export default {
     getFilter: function() {
       this.hallInfo = this.getData[this.$route.params.id]
     },
-    setRating: function(event, a){  
-      // this.ratings.splice(a, 0, event)
-      this.ratings.splice(a, 1, event)
-    }
+    
   },
   computed: {
     ...mapGetters([
