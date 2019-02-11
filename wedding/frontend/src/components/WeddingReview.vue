@@ -5,7 +5,7 @@
       <div class="box hall-info">
         <div class="info-txt">
           <h2>{{hallInfo.name}}</h2>
-          <p class="adr">{{hallInfo.address}}</p>
+          <p class="adr">{{hallInfo.address}} test</p>
           <p class="rating-total"></p>
           <span class="tag" v-for="(tag, index) in hallInfo.tag" v-bind:key="index">{{tag}}</span>
         </div>
@@ -44,7 +44,7 @@
         <h3 class="review-title">
           "{{review.title}}"
         </h3>
-        <p>총점 <b>{{review.totalRating}}</b> {{review.date}}</p>
+        <p>총점<b>{{review.totalRating}}</b> {{review.date}}</p>
         <p class="review-txt">
           {{review.txt}}
         </p>
