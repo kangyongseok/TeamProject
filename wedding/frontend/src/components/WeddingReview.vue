@@ -84,7 +84,11 @@
         <h3 class="review-title">
           "{{review.title}}"
         </h3>
+<<<<<<< HEAD
         <p>총점<b>{{review.totalRating}}</b> {{review.date}}</p>
+=======
+        <p>총점 test <b>{{review.totalRating}}</b> {{review.date}}</p>
+>>>>>>> release/release
         <p class="review-txt">
           {{review.txt}}
         </p>
