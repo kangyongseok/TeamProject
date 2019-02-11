@@ -44,7 +44,7 @@
         <h3 class="review-title">
           "{{review.title}}"
         </h3>
-        <p>총점 <b>{{review.totalRating}}</b> {{review.date}}</p>
+        <p>총점 test <b>{{review.totalRating}}</b> {{review.date}}</p>
         <p class="review-txt">
           {{review.txt}}
         </p>
