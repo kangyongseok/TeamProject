@@ -124,7 +124,14 @@ const state = {
 }
 
 const mutations = { // 순차적인 로직만
-
+    hallLike(state, playload) {
+        console.log(state.data, playload)
+        return state.data.map(a => {
+            if(a.id === playload) {
+                a.like = !a.like
+            }
+        })
+    }
 }
 
 const actions = { // 비동기적 로직만

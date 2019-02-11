@@ -3,8 +3,8 @@
     <div class="content-top">
       <h1 class="contents-title">Wedding Hall List</h1>
       <div class="order-btn">
-        <button class="btn">별점순으로 보기</button>
-        <button class="btn">리뷰순으로 보기</button>
+        <button class="btn" @click="orderClick" name="star" :class="{ star: clickon}" >별점순으로 보기</button>
+        <button class="btn" @click="orderClick" name="review" :class="{ review: clickoff }">리뷰순으로 보기</button>
       </div>
     </div>
     <div class="card-area">
@@ -23,13 +23,12 @@
           <v-icon name="star" v-for="(star, index) in info.star" v-bind:key="index"/>
         </div>
         <div class="like">
-          <button class="btn">
-            <v-icon name="heart"/>
+          <button class="btn" @click="hallLike(index)" :class="{ likeOn:info.like }"> 
+            <v-icon name="heart" />
           </button>
         </div>
       </div>
     </div>
-    
     </div>
     <div class="loding" v-if="loding">
       <v-icon name="spinner" spin scale="2"/>
@@ -39,11 +38,14 @@
 
 <script>
 // https://justineo.github.io/vue-awesome/demo/
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
   data() {
     return {
-      loding: false
+      loding: false,
+      clickon: true,
+      clickoff: false
+
     }
   },
   created() {
@@ -53,13 +55,25 @@ export default {
     ...mapActions([
       
     ]),
+    hallLike(index) {
+      this.$store.commit('hallLike', index)
+    },
     infinit: function() {
       window.onscroll = function(ev) {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
           console.log(1)
         }
-      };
+      }; 
     },
+    orderClick: function(e) {
+      if(e.target.name === "star") {
+        this.clickon = true
+        this.clickoff = false
+      } else {
+        this.clickon = false
+        this.clickoff = true
+      }
+    }
   },
   computed: {
     ...mapGetters([
@@ -103,6 +117,7 @@ export default {
   .card {
     display: flex;
     flex-direction: column;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
   }
 
   .icon-area {
@@ -146,5 +161,19 @@ export default {
     text-align: center;
     margin:2rem 0;
     color:#cccccc;
+  }
+
+  .icon-area .like .likeOn {
+    color:red;
+  }
+
+  .star {
+    color: #00A591;
+    font-weight:bold;
+  }
+
+    .review {
+    color: #00A591;
+    font-weight:bold;
   }
 </style>

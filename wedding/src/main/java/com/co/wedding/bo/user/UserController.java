@@ -56,8 +56,8 @@ public class UserController {
 		}
 		// 수정
 		else {
-			dataBean.setCmd("U");
 			dataBean = userService.view(bean);
+			dataBean.setCmd("U");
 		}
 		
 		model.addAttribute("dataBean", dataBean);

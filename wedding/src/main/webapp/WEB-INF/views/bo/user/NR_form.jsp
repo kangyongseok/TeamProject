@@ -13,6 +13,7 @@
 	// 등록 & 수정
 	function onAction(f){
 		
+		
 		// 필수항목 validate
 		if ( FN.fnTrim(f.userId.value) == "" ) {
 			alert("아이디를 입력해주세요");
@@ -49,8 +50,6 @@
 			, type: "GET"
 			, data: param
 			, success: function(data){
-				console.log("성공");
-				console.log(data);
 				if ( data == CD.reqSuccessCode ){
 					if ( cmd == "I") alert("회원정보가 정상적으로 등록되었습니다.");
 					else alert("회원정보가 정상적으로 수정되었습니다.");
@@ -59,7 +58,6 @@
 					alert("회원정보 등록(수정)에 실패하였습니다. 다시 시도해주시기바랍니다.");
 				}
 			}, error: function(){
-				console.log("실패")
 				alert("회원 정보 등록(수정)에 실패하였습니다. 다시 시도해주시기바랍니다.")
 			}
 		});
