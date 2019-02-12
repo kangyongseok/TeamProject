@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.co.wedding.fe.FeConstant;
+import com.co.wedding.info.hall.HallBean;
+import com.co.wedding.info.hall.HallService;
 import com.co.wedding.info.test.TestBean;
 import com.co.wedding.info.test.TestService;
 import com.co.wedding.info.user.UserBean;
@@ -32,6 +34,9 @@ public class TestController {
 	
 	@Resource
 	TestService service;
+	
+	@Resource
+	HallService hallService;
 	
 	/**
 	 * 샘플 페이지
@@ -60,6 +65,16 @@ public class TestController {
 	@RequestMapping(value="/NR_index2.do")
     public void test2(Model model) {
     	
+    }
+    
+    /**
+     * 웨딩홀 목록 임시
+     */
+	@ResponseBody
+    @RequestMapping(value="/JR_list2.do", method=RequestMethod.GET)
+    public List<HallBean> list(ModelMap model, HallBean bean) {
+    	List<HallBean> dataList = hallService.list(bean);
+        return dataList;
     }
 	
 }
