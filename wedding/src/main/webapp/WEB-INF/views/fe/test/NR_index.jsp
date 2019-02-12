@@ -33,6 +33,8 @@
 <br /><br /><br />
 
 <button type="button" id="btn">json 타입 리스트 불러오기</button>
+<button type="button" id="btn2">hall list 불러오기</button>
+
 
 <h2>vue js로 데이터 출력</h2>
 <div id="box">
@@ -87,6 +89,22 @@ $(function(){
 	$("#btn").click(function(){
 		$.ajax({
 	        url : "JR_list.do",
+	        type: "get",
+	        data : {},
+	        dataType:"json",
+	        success : function(data){
+	        	// data console로 확인
+	        	console.log(data);
+	        },
+	        error : function(){
+	        	alert("실패");
+	        }
+	    });
+	});
+	
+	$("#btn2").click(function(){
+		$.ajax({
+	        url : "/fe/test/JR_list2.do",
 	        type: "get",
 	        data : {},
 	        dataType:"json",
